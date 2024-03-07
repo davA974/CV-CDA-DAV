@@ -1,25 +1,33 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Header from './Components/Header';
+import Home from './Pages/Home';
+import Navigation from './Components/Navigation';
+import InfoPerso from './Pages/InfoPerso';
+import Skills from './Pages/Skills';
+import Knowledges from './Pages/Knowledges';
+import SoftSkills from './Pages/SoftSkills';
+import CenterOfInterest from './Pages/CenterOfInterest';
+const App = () => {
+  // const user = JSON.parse(localStorage.getItem("user"));
 
-function App() {
+  // useEffect(() => {}, [user]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/navigation" element={<Navigation />} />
+        <Route path="/info-perso" element={<InfoPerso />} />
+        <Route path="/informatique" element={<Skills />} />
+        <Route path="/langue-informatique" element={<Knowledges />} />
+        <Route path="/competence" element={<SoftSkills />} />
+        <Route path="/centre-interet" element={<CenterOfInterest />} />
+
+      </Routes>
+    </>
   );
-}
+};
 
 export default App;
